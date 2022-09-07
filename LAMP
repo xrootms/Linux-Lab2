@@ -1,0 +1,65 @@
+//LAMP Stack (Linux, Apache, MySQL, PhpMyadmin0 on UBUNTU//
+
+$ sudo su -
+apt update -y && apt upgrade -y
+apt install apache2 -y
+systemctl start apache2
+systemctl status apache2
+systemctl enable apache2
+
+apt install mysql-server mysql-client -y
+systemctl start mysql
+systemctl status mysql
+
+apt install php php-mysql php-gd php-cli php-common -y
+apt install wget unzip -y
+apt install phpmyadmin -y 
+systemctl restart apache2
+
+go to browser: type ipaddress/phpmyadmin 
+it show error:
+s/n:
+vi /etc/apache2/apache2.conf 
+add last line:> Include /etc/phpmyadmin/apache.conf
+systemctl restart apache2
+-------------------------------------------------------
+$ mysql
+> CREATE USER 'apk'@'localhost' IDENTIFIED BY '@1111';       ###create MySQL normal-user password with full privileges##
+> GRANT ALL PRIVILEGES ON * . * TO 'apk'@'localhost';
+> FLUSH PRIVILEGES;
+> exit
+go to browser type <ipadress/phpmyadmin
+user: apk
+passwd:@1111
+---------------------------------------------------------
+$ sudo mysql
+> ALTER USER 'root'@'localhost' IDENTIFIED BY 'PASSWORD';     ##setup MySQL root-user password##
+> exit
+mysql -u root -p
+PASSWORD
+> use mysql;                ##Database changed##
+> SELECT user FROM user;    ##to check users##
+> exit
+--------------------------------------------------------
+# mysql -u admin -p 
+mysql> show databases;              ##to check Databases##
+mysql> create database mydb         ##create database##
+mysql> use mydb                     ##create tables##
+mysql> create table tablemeraland(
+    -> empid varchar(20),
+    -> fname varchar(20),
+    -> lname varchar(20),
+    -> pri_skill varchar(20),
+    -> location varchar(20));
+mysql> show tables;                  ##to check tables##
+---------------------------------------------------------
+//after interies then check db/tables interies//
+mysql> use mydb;
+mysql> slect * from mydb;
+-----------------------------------------------------------
+//SECURE-in db set root user passwd//
+# mysql_secure_installation 
+   y|y|y|y
+# mysql -u root -p <login as root>
+> exit
+---------------------------------------------------------
