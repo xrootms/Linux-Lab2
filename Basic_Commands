@@ -1,0 +1,101 @@
+$ touch .[file-name]                # to make or hide file
+$ cp [file1] [file2]                # copy file1 to file2
+$ cp -r [dir1] [dir2]               # copy dir1 to dir2: create dir2 if not exist
+$ mv [file1] [dir1]                 # rename or cut & past
+$ mv [file1] [file2]                # rename or move file1 to file2
+$ rm [file-name]                      # remove a file 
+$ rm -r                               # remove empty directory 
+$ rm -rf                              # remove non-empty file & directory 
+$ rm -rp                              # remove non-empty directory with subdirectories
+$ rmdir [dir-name]                    # remove the empty directory 
+$ tar cf file.tar  [files]          # create a tar named file.tar
+$ tar xf file.tar                   # Extract the files from file.tar
+$ tar czf file.tar.gz [files]       # create tar with Gzip compression.
+$ tar xzf file.tar.gz               # Extract a tar using Gzip.
+$ gzip [file]                       # compress
+$ gunzip [file]                     # decompress
+$ chown [user-name] [ file]                   # to change owner of a file
+$ chgrp [group-name] [file]                   # to change group of a file
+$ chmod 777 [file]                            # read, write, execute for all
+$ chmod 755 [file]                            # rwx for Owner, rx for Group rx for Othere.
+$ chmod 4755 /usr/sbin/useradd                # to give special permission 
+$ users             # list all users 
+$ whoami            # user 
+$ ls -la            # listing files and dirs with hidden files 
+$ ls -lart                       # hidden, recursilvely, listing files and dirs 
+$ clear                          # clear the screen 
+$ ls -l [dir_name]/*             # list all files and folders from any location, *: all files 
+$ ls -i                          #  Show inodes
+$ uname            # print Linux karnel version
+$ umane -i         # Desplay infra value <hardware type>
+$ umane -r         # Display release & release of karnel verson
+$ man uname        # check furthaer information about it
+$ $uname -a    
+$ hostname                #  Displays the computers hostname 
+$ hostname -d             # Display DNS domain name.
+$ hostname -i             #  Display the computers IP address 
+$ hostname -a             # Display Alias name of the host.
+$ ip a                        #  List and show all ip address 
+$ ifconfig                    #  displays information about all network interfaces 
+$ ip r                        # Print IP CIDR, Default Gateway#
+$ ip addr show              # show mac address ipv6 supported or not, How many Lan card
+$ ifconfig                  # print the information of ur primary interface#
+$ ifconfig -a               # if there are multiple interfaces
+$ dig google.com                   #  for querying DNS name servers. 
+$ host google.com                  #  to find the IP address of a particular domain name 
+$ nslookup                         # DNS related troubleshoot
+$ nslookup google.com
+$ route -vn
+$ curl [url]                       #  tool to transfer data to or from a server. 
+$ du -sh *               # use to check indivisual size of file & folder #
+$ df -Th                 #  to check with file system we have free space//prints out details about only mounted file systems.#
+$ du -sh /var/log/*                # to check which file use disk space in a dir #
+$ > file_name                      # to empty or blank a file content
+$ ps -ef                  # Display every active process on a Linux system
+$ top                     # press caps+ M for memprypress Caps+P for CPU utilization
+$ fdisk -l                # to check if another disk is associate with server #
+$ lsblk                   # show how many disk are maunted & how many partition created
+$ blkid                   # to see perticular partition's file system/farmated or not#
+$ mkfs.<filesystem-type> <disk_name> # to farmat#
+$ locaqte fstab                      # find somthing#
+$ w                                  # to see how many users r working/all logedin users#
+$ id                                 #  displays information about currently logged-in user. 
+$ lsof -u root | more                #  List all open files for root user 
+$ env                                #  to see al list of env variables 
+$ env -u [var-name]                  #  remove a var from the env
+$ ln  [file]   [file2]               # automatic backup synhardlink for backup 
+$ ln -s [file] [file2]               #softlink for shortcut
+$ lsof -u root | more                #  List all open files for root user 
+$ cat /etc/shells
+$ echo $SHELL
+$ echo $0
+$ ps -ef                           # display all ur current active processes 
+$ ps aux | grep jenkins            # to check CPU usage for a process
+$ ps aux | grep apache2            # to check cpu usages for a process
+$ ps -ef | grep tomcat             # to display process status, #
+$ kill [PID]                       # kill process of PID
+$ netstat -tunlp                   # to check port 22 is open or not
+$ netstat -tunlp | grep :22        # to check port 22 is open or not 
+$ netstat -tunlp | grep LISTEN
+$ apt list                         #   List all software-packages on Linux available for us 
+$ apt list --installed             #   List all installed packages only
+$ apt list | grep nginx 
+$ apt list apache2 
+$ tail -n /var/log/apache2/access.log
+$ tail -n 100 /var/log/apache2/access.log
+$ ls -lSr /var/log/apache2/                   # show file by size, bigger file will display last #
+$ namei -l /var/www/html/index.php            # to detect permissions errors#
+$ free -mh
+$ find  /var/www/ -name index.php             # to find a file with specific name #
+$ find  /var/www/ -name *.php                 # to find a file with specific name #
+$ find /var/log/apache2/ -empty               # to find the empty file/dir #
+$ ln  [file]   [file2]                        # automatic backup synhardlink for backup 
+$ ln -s [file] [file2]                        #softlink for shortcut
+$ sudo ufw status
+$ sudo ufw disable
+$ sudo ufw enable
+$ sudo ufw status numbered
+$ sudo ufw delete [*]
+# yum list installed                # List all installed packages only
+# yum installed | grep java
+# yum list all                      # (list all pkg)
