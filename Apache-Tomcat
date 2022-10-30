@@ -1,0 +1,39 @@
+       Install Apache Tomcat on Ubuntu 
+
+1. //Install Java//
+$ sudo apt update
+$ sudo apt install default-jdk -y
+$ java -version
+
+2. //Install Tomcat//
+Download the latest version of Apache Tomcat. 
+$ wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.83/bin/apache-tomcat-8.5.83.tar.gz
+$ sudo tar xzvf apache-tomcat-8.5.83.tar.gz
+$ sudo mkdir /opt/tomcat/
+sudo mv apache-tomcat-8.5.83/* /opt/tomcat/
+$ sudo chown -R www-data:www-data /opt/tomcat/
+$ sudo chmod -R 755 /opt/tomcat/
+
+3.//create link files for tomcat startup.sh and shutdown.sh//
+$ ln -s /opt/tomcat/bin/startup.sh /usr/local/bin/tomcatstart
+$ ln -s /opt/tomcat/bin/shutdown.sh /usr/local/bin/tomcatstop
+
+4. //update port number in the "connecter port" field in server.xml//
+$ cd /opt/tomcat/conf
+$ sudo nano server.xml
+$ tomcatstop
+$ tomcatstart
+
+5. //Update users information in the tomcat-users.xml file// 
+$ cd /opt/tomcat/conf
+$  sudo nano tomcat-users.xml
+
+	<role rolename="manager-gui"/>
+	<role rolename="manager-script"/>
+	<role rolename="manager-jmx"/>
+	<role rolename="manager-status"/>
+	<user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+	<user username="deployer" password="deployer" roles="manager-script"/>
+	<user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+Restart serivce and try to login to tomcat application from the browser.
