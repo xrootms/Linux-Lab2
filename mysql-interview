@@ -1,0 +1,60 @@
+
+apt install mysql-server mysql-client -y
+systemctl start mysql
+systemctl status mysql
+
+//in db set root user passwd//
+# mysql_secure_installation 
+   y|y|y|y
+
+[ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'Strong@Password1111';]
+(https://laracasts.com/discuss/channels/general-discussion/mysql-secure-installation-error-in-mysql8)
+
+-------------------------------------------------------------------------------
+//use of command line in server create a user with full privileges for broswer (http://ipadress/phpmyadmin) login//
+$ sudo mysql
+mysql> CREATE USER 'apk'@'localhost' IDENTIFIED BY '@1111';
+        > GRANT ALL PRIVILEGES ON * . * TO 'apk'@'localhost';
+        > FLUSH PRIVILEGES;
+        > exit
+go to browser 
+user : > apk
+passwd:> 
+
+---------------------------------------------------------------------------------
+//to check current logined user//
+SELECT CURRENT_USER();  
+-------------------------------------------------------------------------------
+//to check priviladge of user//
+SELECT user,host FROM mysql.user;    
+
+SHOW GRANTS FOR <username>@<host>;
+SHOW GRANTS FOR test_user;
+
+SHOW GRANTS;
+---------------------------------------------------------------------------------
+---------------------------------------------------------
+//to chec users//
+> mysql -u root -p  
+Enter password: *********  
+mysql> use mysql;  
+Database changed  
+mysql> SELECT user FROM user; 
+----------------------------------------------
+# mysql -u admin -p ****
+mysql>show databases;
+mysql>create database meraland;
+now create tables--
+mysql> use meraland
+mysql> create table tablemeraland(
+    -> empid varchar(20),
+    -> fname varchar(20),
+    -> lname varchar(20),
+    -> pri_skill varchar(20),
+    -> location varchar(20));
+mysql> show tables;
+---------------------------------------------------------
+//after interies then check db/tables interies//
+mysql> use meraland;
+mysql> slect * from meraland;
+-----------------------------------------------------------
